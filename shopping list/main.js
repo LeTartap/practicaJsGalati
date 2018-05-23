@@ -4,8 +4,7 @@ var input = document.querySelector("#inputText");
 adButton.addEventListener("click", AddItem);
 //}
 
-function AddItem()
-{
+function AddItem() {
     //var input = document.querySelector("#inputText");
     var returnedText = input.value;
     //console.log("am scris " + returnedText);
@@ -22,11 +21,21 @@ function AddItem()
     localButton.addEventListener("click", DeleteElement);
     input.value = "";
 
+    var localButton = document.createElement("button");
+    localButton.setAttribute("id", "localButton2");
+    localButton.textContent = "Edit";
+    item.appendChild(localButton);
+    localButton.addEventListener("click", EditElement);
+    input.value = "";
+
     //alert(returnedText);
 }
 
-function DeleteElement(){
+function DeleteElement() {
     var parent = this.parentNode;
     parent.parentNode.removeChild(parent);
     console.log("deleted");
+}
+function EditElement()
+{
 }
