@@ -2,7 +2,6 @@ var adButton = document.querySelector("#but1");
 var input = document.querySelector("#inputText");
 var tempText;
 var canEdit = true;
-var finalList = [];
 
 adButton.addEventListener("click", AddItem);
 
@@ -10,9 +9,7 @@ adButton.addEventListener("click", AddItem);
 function AddItem()
 {
     if(input.value !== ""){
-    //var input = document.querySelector("#inputText");
     var returnedText = input.value;
-    //console.log("am scris " + returnedText);
 
     var shoppingList = document.querySelector("#shopingList");
     var shoppingItem = document.createElement("li");
@@ -37,69 +34,60 @@ function AddItem()
     var submitButton = document.createElement("button");
     submitButton.setAttribute("id","localButton");
     submitButton.textContent = "Submit";
-    shoppingItem.appendChild(submitButton);
-    submitButton.addEventListener("click",submitElement);
+    submitButton.appendChild(submitButton);
+    submitButton.addEventListener("click", SubmitElement);
+
 
     }
     //alert(returnedText);
 }
 
-function DeleteElement(){
+function DeleteElement()
+{
     var parent = this.parentNode;
     parent.parentNode.removeChild(parent);
     console.log("deleted!!!");
 }
 
-function EditElement(){
-    //permite apasarea butonului de Edit o singura data
+function EditElement()
+{
+    //asigura ca nu se apasa de mai multe ori pe buton
     if(canEdit){
         var parent = this.parentNode;
         var input = document.createElement("input");
         console.log(parent.firstChild);
 
-        tempText = parent.firstChild.textContent;
-                //se retine global primul element din lista
+        tempText = parent.firstChild.textContent;//stochez intr-o variabila globala textul primului element din lista(de tip text)
         console.log(tempText);
 
-        //se dezactiveaza primul nod din HTML <li>
-        //parent.removeChild(parent.firstChild);   
+        //dezactivez primul nod din elementul html li
         parent.firstChild.textContent = "";
 
-        //se adauga eventListener-ul pe HTML element Input
+        //adaug eventListenerul pe html element Input
         input.addEventListener("keyup", keyCheck);
 
-        //inserez elementul nou creat
+        //inserez elementul nou creat (inputul)
         parent.insertBefore(input, parent.firstChild);
-        //se atribuie tagului value al elementului input, valoarea stocata a "var tempText"
-        input.value = tempText;
+        input.value = tempText; //se atribuie tagului value al elemetului input valoarea stocata a "var tempText"
         canEdit = false;
     }
 }
 
-function submitElement()
+function SubmitElement();
 {
     var parent = this.parentNode;
-    //alert(parent.firstChild.textContent);
-    finalList.push(parent.firstChild.textContent);
-    console.log(finalList[0]);
-    console.log(finalList[1]);
 
 }
-
-function keyCheck(e){
-    if(e.key ==="Enter")
-    {
+function keyCheck(e)
+{
+    if(e.key ==="Enter"){
         console.log(e.key + " was pressed");
-        //salvez textul din input
-        var savedText = this.value;
-        //dezactivez inputul
-        this.style.display = "none";
-        //creez un nou element html de tip text
-        var insertedText = document.createElement("text");
+        var savedText = this.value;//se salveaza textul din input
+        this.style.display = "none"; //se dezactiveaza inputul
+        var insertedText = document.createElement("text");//creez un nou element html de tip text
         //inserez elementul nou creat
         var parent  = this.parentNode;
         parent.insertBefore(insertedText, parent.firstChild);
-        //ii atribui textul inputului
-        insertedText.textContent = savedText;
+        insertedText.textContent = savedText;//se atribuie textul inputului
     }
 }
