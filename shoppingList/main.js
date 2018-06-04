@@ -71,7 +71,6 @@ function createEditfunction()
             parent.insertBefore(input, parent.firstChild);
             //se atribuie tagului value al elementului input, valoarea stocata a "var tempText"
             input.value = tempText;
-            canEdit=false;
         }
     }    
 }
@@ -102,5 +101,7 @@ function keyCheck(e){
         parent.insertBefore(insertedText, parent.firstChild);
         //ii atribui textul inputului
         insertedText.textContent = savedText;
+        canEdit=false;
+
     }
 }
