@@ -1,7 +1,6 @@
 var adButton = document.querySelector("#but1");
 var input = document.querySelector("#inputText");
 var tempText;
-var canEdit = true;
 var finalList = [];
 
 adButton.addEventListener("click", AddItem);
@@ -30,9 +29,7 @@ function AddItem()
     editButton.setAttribute("id","localButton");
     editButton.textContent = "Edit";
     shoppingItem.appendChild(editButton);
-    editButton.addEventListener("click", EditElement);
-    canEdit = true;
-
+    editButton.addEventListener("click", createEditfunction());
 
     var submitButton = document.createElement("button");
     submitButton.setAttribute("id","localButton");
@@ -49,32 +46,36 @@ function DeleteElement(){
     parent.parentNode.removeChild(parent);
     console.log("deleted!!!");
 }
-
-function EditElement(){
-    //permite apasarea butonului de Edit o singura data
-    if(canEdit){
-        var parent = this.parentNode;
-        var input = document.createElement("input");
-        console.log(parent.firstChild);
-
-        tempText = parent.firstChild.textContent;
-                //se retine global primul element din lista
-        console.log(tempText);
-
-        //se dezactiveaza primul nod din HTML <li>
-        //parent.removeChild(parent.firstChild);   
-        parent.firstChild.textContent = "";
-
-        //se adauga eventListener-ul pe HTML element Input
-        input.addEventListener("keyup", keyCheck);
-
-        //inserez elementul nou creat
-        parent.insertBefore(input, parent.firstChild);
-        //se atribuie tagului value al elementului input, valoarea stocata a "var tempText"
-        input.value = tempText;
-        canEdit = false;
-    }
+function createEditfunction()
+{
+    var canEdit = true;
+    return function(){
+        //permite apasarea butonului de Edit o singura data
+        if(canEdit){
+            var parent = this.parentNode;
+            var input = document.createElement("input");
+            console.log(parent.firstChild);
+    
+            tempText = parent.firstChild.textContent;
+            //se retine global primul element din lista
+            console.log(tempText);
+    
+            //se dezactiveaza primul nod din HTML <li>
+            //parent.removeChild(parent.firstChild);   
+            parent.firstChild.textContent = "";
+    
+            //se adauga eventListener-ul pe HTML element Input
+            input.addEventListener("keyup", keyCheck);
+    
+            //inserez elementul nou creat
+            parent.insertBefore(input, parent.firstChild);
+            //se atribuie tagului value al elementului input, valoarea stocata a "var tempText"
+            input.value = tempText;
+            canEdit=false;
+        }
+    }    
 }
+
 
 function submitElement()
 {
