@@ -22,21 +22,17 @@ const form = document.querySelector('form');
 //    cum gestionam un Response cu metoda .then(),
 //    parsarea unui string JSON cu metoda Response.json() etc.  
 
-
-
-fetch('https://dog.ceo/api/breeds/image/random')
-    .then(response => response.json())
-    .then(function(response){ 
-        generateImage(response.message);
-    })
-  
-
 // PAS 2 - afisati imaginea random obtinuta de la API in <div>-ul cu clasa ".card"
     // var img = document.createElement("IMG");
     // img.src = fetch('https://dog.ceo/api/breeds/image/random').then(function(response){return response.json()})
     // document.getElementById('.card').appendChild(img);
 
-
+    fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => response.json())
+    .then(function(response)
+    { 
+        generateImage(response.message);
+    })
 
 
 
