@@ -8,7 +8,6 @@
 // ------------------------------------------
 //  Referinte la Elementele HTML pe care le vom folosi in cod
 // ------------------------------------------
-
 const select = document.getElementById('breeds');
 const card = document.querySelector('.card'); 
 const form = document.querySelector('form');
@@ -25,11 +24,19 @@ const form = document.querySelector('form');
 
 
 
-// PAS 2 - afisati imaginea random obtinuta de la API in <div>-ul cu clasa ".card"
-
 fetch('https://dog.ceo/api/breeds/image/random')
-    .then(function(response){ return response.json() })
-    .then(data => console.log(data.message))
+    .then(response => response.json())
+    .then(function(response){ 
+        generateImage(response.message);
+    })
+  
+
+// PAS 2 - afisati imaginea random obtinuta de la API in <div>-ul cu clasa ".card"
+    // var img = document.createElement("IMG");
+    // img.src = fetch('https://dog.ceo/api/breeds/image/random').then(function(response){return response.json()})
+    // document.getElementById('.card').appendChild(img);
+
+
 
 
 
@@ -50,23 +57,18 @@ fetch('https://dog.ceo/api/breeds/image/random')
 // ------------------------------------------
 //  HELPER FUNCTIONS
 // ------------------------------------------
-/**
- * generateImage
- * Afiseaza o imagine in interiorul div-ului cu clasa .card 
- * 
- * @param {string} src - URL-ul imaginii
- */
 
 
 
+function generateImage(src){
+    var img = document.createElement("img");
+    img.id = "imgId";
+    img.src=src;
+    card.appendChild(img);
+}
 
 
-/**
- * generateOptions
- * Completeaza optiunile din <select> cu rasele obtinute de la API
- * 
- * @param {Array} data - lista de rase
- */
+
 
 
 
