@@ -1,0 +1,20 @@
+{
+    "David":[
+        {
+            "gender":"male",
+            "name" : 
+            {
+                "first":"David",
+                "last":"Galati"
+            },
+            "location":
+            {
+                "city" :"Bucharest"
+            },
+            "picture":
+            {
+                "random" :"https://randomuser.me/api/"
+            }
+        }
+    ]
+}
