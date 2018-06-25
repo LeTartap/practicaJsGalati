@@ -1,5 +1,5 @@
 {
-    "David":[
+    "Colegi":[
         {
             "gender":"male",
             "name" : 
@@ -15,6 +15,39 @@
             {
                 "random" :"https://randomuser.me/api/"
             }
+        },
+		{
+            "gender":"male",
+            "name" : 
+            {
+                "first":"Bogdan",
+                "last":"Hutu"
+            },
+            "location":
+            {
+                "city" :"Bucharest"
+            },
+            "picture":
+            {
+                "random" :"https://randomuser.me/api/"
+            }
+        },
+		{
+            "gender":"male",
+            "name" : 
+            {
+                "first":"Ciprian",
+                "last":"Ciprian"
+            },
+            "location":
+            {
+                "city" :"Bucharest"
+            },
+            "picture":
+            {
+                "random" :"https://randomuser.me/api/"
+            }
         }
+		
     ]
 }
