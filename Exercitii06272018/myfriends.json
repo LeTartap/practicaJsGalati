@@ -1,0 +1,90 @@
+{
+    "Colegi":
+    [
+        {
+            "gender":"male",
+            "title":
+            {
+                "title":"Mr."
+            },
+            "name" : 
+            {
+                "first":"David",
+                "last":"Galati"
+            },
+            "location":
+            {
+                "city" :"Bucharest"
+            },
+            "casatorit":"false",
+            "picture":
+            {
+                "random" :"https://randomuser.me/api/"
+            }
+        },
+        {
+            "gender":"female",
+            "title":
+            {
+                "title":"Mrs."
+            },
+            "name" : 
+            {
+                "first":"Ida",
+                "last":"Sobaru"
+            },  
+            "location":
+            {
+                "city" :"Bucharest"
+            },
+            "casatorit":"true",
+            "picture":
+            {
+                "random" :"https://randomuser.me/api/"
+            }
+        },
+        {
+            "gender":"male",
+            "title":
+            {
+                "title":"Mr."
+            },
+            "name" : 
+            {
+                "first":"Bogdan",
+                "last":"Hutu"
+            },
+            "location":
+            {
+                "city" :"Bucharest"
+            },
+            "casatorit":"true",
+            "picture":
+            {
+                "random" :"https://randomuser.me/api/"
+            }
+        },
+        {
+            "gender":"male",
+            "title":
+            {
+                "title":"Mr."
+            },
+            "name" : 
+            {
+                "first":"Stefa",
+                "last":"Craia"
+            },
+            "location":
+            {
+                "city" :"Bucharest"
+            },
+            "casatorit":"true",
+            "picture":
+            {
+                "random" :"https://randomuser.me/api/"
+            }
+        }
+
+    ]
+}
